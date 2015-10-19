@@ -13,11 +13,13 @@ class User < ActiveRecord::Base
     through: :contact_shares,
     source: :contact
 
+  has_many :comments, :as => :commentable
+
   def all_contacts
     result = []
     result << contacts
     result << contact_shares
-    result 
+    result
   end
 
 end
