@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :users
+  resources :users, only: [:index, :create, :destroy, :update, :show] 
 
   # get 'users' => 'users#index'
   # post 'users' => 'users#create'
