@@ -5,7 +5,7 @@ url = Addressable::URI.new(
   scheme: 'http',
   host: 'localhost',
   port: 3000,
-  path: '/users.json',
+  path: '/contacts.json',
   ).to_s
 
 puts RestClient.get(url)
@@ -13,60 +13,66 @@ puts RestClient.get(url)
 puts
 puts
 
-def create_user
+def create_contact
   url = Addressable::URI.new(
     scheme: 'http',
     host: 'localhost',
     port: 3000,
-    path: '/users.json'
+    path: '/contacts.json'
   ).to_s
 
   puts RestClient.post(
     url,
-    { user: { name: "Gizmo", email: "gizmo@gizmo.gizmo" } }
+    { contact: { name: "Gizmo", email: "gizmo@gizmo.gizmo", user_id: 1 } }
   )
 end
 
-# create_user
+# create_contact
 
-def destroy_user
+def destroy_contact
   url = Addressable::URI.new(
     scheme: 'http',
     host: 'localhost',
     port: 3000,
-    path: '/users/4.json'
+    path: '/contacts/33.json'
   ).to_s
 
   puts RestClient.delete(
     url,
-    { user: { name: "Gizmo", email: "gizmo@gizmo.gizmo" } }
+    { contact: { name: "Gizmo", email: "gizmo@gizmo.gizmo", user_id: 1 } }
   )
 end
 
-def update_user
+# destroy_contact
+
+def update_contact
   url = Addressable::URI.new(
     scheme: 'http',
     host: 'localhost',
     port: 3000,
-    path: '/users/3.json'
+    path: '/contacts/32.json'
   ).to_s
 
   puts RestClient.patch(
     url,
-    { user: { name: "Ben", email: "BennyBennassi@thebiz.com" } }
+    { contact: { name: "Ben", email: "BennyBennassi@thebiz.com" } }
   )
 end
 
-def show_user
+# update_contact
+
+def show_contact
   url = Addressable::URI.new(
     scheme: 'http',
     host: 'localhost',
     port: 3000,
-    path: '/users/2.json',
+    path: '/contacts/18.json',
     ).to_s
 
   puts RestClient.get(url)
 end
 
-show_user
+show_contact
+
+# show_user
 # update_user
