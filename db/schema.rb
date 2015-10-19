@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151019184540) do
+ActiveRecord::Schema.define(version: 20151019185819) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "contact_shares", force: :cascade do |t|
+    t.integer  "contact_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "contact_shares", ["contact_id"], name: "index_contact_shares_on_contact_id", using: :btree
+  add_index "contact_shares", ["user_id"], name: "index_contact_shares_on_user_id", using: :btree
 
   create_table "contacts", force: :cascade do |t|
     t.string   "name"
