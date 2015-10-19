@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   has_many :contacts, :dependent => :destroy
 
   has_many :contact_shares,
+    :dependent => :destroy,
     class_name: "ContactShare",
     foreign_key: :user_id,
     primary_key: :id
@@ -11,5 +12,12 @@ class User < ActiveRecord::Base
   has_many :shared_contacts,
     through: :contact_shares,
     source: :contact
+
+  def all_contacts
+    result = []
+    result << contacts
+    result << contact_shares
+    result 
+  end
 
 end

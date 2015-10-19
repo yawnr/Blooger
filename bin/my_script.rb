@@ -5,7 +5,7 @@ url = Addressable::URI.new(
   scheme: 'http',
   host: 'localhost',
   port: 3000,
-  path: '/contacts.json',
+  path: '/users/20/contacts.json',
   ).to_s
 
 puts RestClient.get(url)
@@ -72,7 +72,7 @@ def show_contact
   puts RestClient.get(url)
 end
 
-show_contact
+# show_contact
 
 # show_user
 # update_user
